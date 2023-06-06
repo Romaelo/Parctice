@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>블랙잭</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <div class = "BlackJack">
+    <div class = "block">
+      <h1>BlackJack</h1>
+
+      <div class="gamble_area">
+
+        <div class = "player_area">
+
+          <h3>플레이어의 카드값 : <span id = "player_blackjack_point">0</h3>
+        </div>
+
+        <div id = "dealer_area">
+
+          <h3>딜러의 카드값 : <span id = "dealer_blackjack_point">0</span></h3>
+
+        </div>
+      </div>
+
+      <div class = "btn_area">
+        <div>
+          <button class  = "btn btn_hit" id  = "hit_btn">Hit</button>
+          <button class  = "btn btn_stand" id  = "stand_btn">Stand</button>
+          <button class  = "btn btn_deal" id  = "deal_btn">Deal</button>
+        </div>
+      </div>
+
+      
+      <div class = "score_area">
+
+        <table>
+          
+          <tr>
+            <th>승리</th>
+            <th>무승부</th>
+            <th>패배</th>
+          </tr>
+
+          <tr>
+            <td><span id = "win">0</span></td>
+            <td><span id = "draw">0</span></td>
+            <td><span id = "lose">0</span></td>
+          </tr>
+
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+  <script src = "js/script.js"></script>
+  
+</body>
+</html>
