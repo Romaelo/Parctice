@@ -3,7 +3,7 @@ let player_card;   //플레이어 카드값
 let dealer_card;   //딜러 카드값
 let winner;   //승자
 let win, lose, draw = 0;    //승점
-let deal, hit, stand = 0;     //플레이어의 선택 => 선택 활성화 됐을 경우 1로 값 변경하여 조건 만족
+let deal, hit, stand = 0;   //플레이어의 선택 => 선택 활성화 됐을 경우 1로 값 변경하여 조건 만족
 let card = ['A','2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']    //카드 배열
 let standing = false;   //stand 버튼 눌렀을 떄 활성화
 let turnEnd = false;    //딜러 턴이 끝났을 때 활성화
