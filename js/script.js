@@ -11,13 +11,13 @@ let turnEnd = false;    //딜러 턴이 끝났을 때 활성화
 // standing == true && turnEnd == true 일 경우 승자 판별로 넘어가는 조건 만족
 
 //Hit 버튼을 눌렀을 경우에 발생하는 이벤트 => 플레이어에게 카드 배분
-document.querySelector('#btn_hit').addEventListener('click', Hit); 
+document.querySelector('#hit_btn').addEventListener('click', Hit); 
 
 //Stand 버튼을 눌렀을 경우에 발생하는 이벤트 => 딜러 파트로 넘어감
-document.querySelector('#btn_stand').addEventListener('click', Stand);
+document.querySelector('#stand_btn').addEventListener('click', Stand);
 
 //Deal 버튼을 눌렀을 경우에 발생하는 이벤트 => 초기화 후 게임 시작
-document.querySelector('#btn_deal').addEventListener('click', Again);
+document.querySelector('#deal_btn').addEventListener('click', Again);
 
 
 function Hit()
