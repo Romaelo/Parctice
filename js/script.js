@@ -20,13 +20,96 @@ document.querySelector('#stand_btn').addEventListener('click', Stand);
 document.querySelector('#deal_btn').addEventListener('click', Again);
 
 
-function Hit()
+function calculatePlayerCardValue(cards) {
+  let aceCount = 0;
 
-function Stand()
+  for (let i = 0; i < cards.length; i++) {
+    let cardValue;
+    if (cards[i] === 'A') {
+      cardValue = 11;
+      aceCount++;
+    } else if (cards[i] === 'J' || cards[i] === 'Q' || cards[i] === 'K') {
+      cardValue = 10;
+    } else {
+      cardValue = parseInt(cards[i]);
+    }
 
-function Again()
+    player_card += cardValue;
+  }
+
+  while (player_card > 21 && aceCount > 0) {
+    player_card -= 10;
+    aceCount--;
+  }
+
+  return player_card;
+}
+
+function Hit() {
+  if (!standing && !turnEnd) {
+    // 플레이어의 카드 배열에 무작위 카드 추가
+    const randomIndex = Math.floor(Math.random() * card.length);
+    const randomCard = card[randomIndex];
+    player_deck.push(randomCard);
+
+    // 플레이어의 카드 현황 콘솔에 출력
+    console.log("플레이어 카드:", player_deck);
+
+    // 플레이어의 카드 총합 계산
+    const player_card = calculatePlayerCardValue(player_deck);
+    console.log("총점:", player_card);
+
+     // 플레이어의 카드 총합을 화면에 출력
+     document.querySelector("#player_blackjack_point").textContent = player_card;
 
 
+    // 총합이 21을 초과하는지 확인
+    if (player_card > 21) {
+      alert("버스트! 21을 넘겼습니다.");
+      return player_card;
+    } else {
+      // 플레이어에게 Hit 또는 Stand 선택 안내
+      hit = 1;
+      stand = 1;
+
+    }
+  }
+}
+
+function Stand() {
+  if (hit === 1)  {
+      standing = true;
+      turnEnd = true;
+      DealerTurn();
+  }
+}
+
+function Again() {
+    player_card = 0;
+    dealer_card = 0;
+    winner = none;
+    standing = false;
+    turnEnd = false;
+  }
+
+  function DealerTurn() {
+    while (dealer_card < 17) {
+      let randomCardIndex = Math.floor(Math.random() * card.length);
+      let drawnCard = card[randomCardIndex];
+      dealer_card += getCardValue(drawnCard);
+      // 딜러에게 카드를 배분하는 로직을 추가했습니다.
+      // dealer_card 값을 업데이트합니다.
+  
+      if (dealer_card > 21) {
+        winner = player;
+        lose++;
+        return;
+      }
+    }
+    turnEnd = true;
+    Winner();
+  }
+  
 //승자 판별
 function Winner() {
 
