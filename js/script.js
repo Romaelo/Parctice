@@ -67,6 +67,7 @@ function calculatePlayerCardValue(cards) {
   
       // 총합이 21을 초과하는지 확인
       if (player_card > 21) {
+        alert("버스트! 21을 넘겼습니다.");
         return player_card;
       } else {
         // 플레이어에게 Hit 또는 Stand 선택 안내
